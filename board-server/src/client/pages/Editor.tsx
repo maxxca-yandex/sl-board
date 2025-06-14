@@ -36,9 +36,8 @@ export default function Editor({ onEditorMount }) {
 			try {
 				const response = await fetch(`${WORKER_URL}/get_user_info`);
 				if (response.status === 401) {
-					// const redirectUrl = encodeURIComponent(window.location.href);
-					// window.location.href = `${SSO_URL}${redirectUrl}`;
-					console.log(`Unauthorized!`);
+					const redirectUrl = encodeURIComponent(window.location.href);
+					window.location.href = `https://tools.sphericallife.ru/login?redirect=${redirectUrl}`;
 			}
 	
 			if (!response.ok) throw new Error("Ошибка загрузки данных пользователя");
