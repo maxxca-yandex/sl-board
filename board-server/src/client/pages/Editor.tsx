@@ -36,7 +36,7 @@ export default function Editor({ onEditorMount }) {
 			try {
 				const response = await fetch(`${WORKER_URL}/get_user_info`);
 				if (response.status === 401) {
-					const redirectUrl = encodeURIComponent(window.location.href);
+					const redirectUrl = window.location.href;
 					window.location.href = `https://tools.sphericallife.ru/login?redirect=${redirectUrl}`;
 			}
 	
